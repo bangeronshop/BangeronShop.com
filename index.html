@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>🔥 BangeronShop.com</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#111;
+    color:white;
+    padding:30px;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    font-size:48px;
+    margin-bottom:40px;
+    color:#ff3131;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-bottom:50px;
+}
+
+.card{
+    background:#1c1c1c;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.3s;
+    border:2px solid transparent;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ff3131;
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.car-title{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.car-price{
+    font-size:22px;
+    color:#ff3131;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.stock{
+    display:inline-block;
+    background:#1f7a1f;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.buy-btn{
+    width:100%;
+    border:none;
+    background:#ff3131;
+    color:white;
+    padding:15px;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.buy-btn:hover{
+    background:#d10000;
+}
+
+.cart-box{
+    background:#1c1c1c;
+    padding:30px;
+    border-radius:25px;
+    max-width:700px;
+    margin:auto;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.cart-box h2{
+    margin-bottom:20px;
+    font-size:32px;
+    color:#ff3131;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid #333;
+}
+
+.total{
+    text-align:right;
+    font-size:28px;
+    margin-top:25px;
+    font-weight:bold;
+}
+
+.checkout-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    background:#25d366;
+    color:white;
+    padding:18px;
+    border-radius:40px;
+    font-size:20px;
+    margin-top:25px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.checkout-btn:hover{
+    background:#1da851;
+}
+
+.checkout-btn.disabled{
+    background:#555;
+    pointer-events:none;
+}
+
+.clear-btn{
+    width:100%;
+    background:#333;
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:40px;
+    margin-top:15px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.clear-btn:hover{
+    background:#555;
+}
+
+.qr-box{
+    margin-top:30px;
+    text-align:center;
+    display:none;
+}
+
+.qr-box img{
+    width:220px;
+    border-radius:20px;
+    background:white;
+    padding:10px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:60px;
+    color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔥 BangeronShop.com</h1>
+
+<div class="products-grid">
+
+<div class="card">
+<img src="Factory Fresh Black.jpeg">
+<div class="card-content">
+<div class="car-title">Factory Fresh Black</div>
+<div class="car-price">RM 25.00</div>
+<div class="stock">In Stock</div>
+<button class="buy-btn" onclick="addToCart('Factory Fresh Black',25)">
+🛒 Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="'83 Chevy Silverado Pink.jpeg">
+<div class="card-content">
+<div class="car-title">'83 Chevy Silverado Pink</div>
+<div class="car-price">RM 30.00</div>
+<div class="stock">In Stock</div>
+<button class="buy-btn" onclick="addToCart('83 Chevy Silverado Pink',30)">
+🛒 Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="F1 Kick Sauber.jpeg">
+<div class="card-content">
+<div class="car-title">F1 Kick Sauber</div>
+<div class="car-price">RM 66.00</div>
+<div class="stock">In Stock</div>
+<button class="buy-btn" onclick="addToCart('F1 Kick Sauber',66)">
+🛒 Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="'82 Nissan Skyline r30.jpeg">
+<div class="card-content">
+<div class="car-title">'82 Nissan Skyline</div>
+<div class="car-price">RM 28.00</div>
+<div class="stock">In Stock</div>
+<button class="buy-btn" onclick="addToCart('82 Nissan Skyline',28)">
+🛒 Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="'98 Subaru Impreza 22B-STi version.jpeg">
+<div class="card-content">
+<div class="car-title">'98 Subaru Impreza 22B-STi</div>
+<div class="car-price">RM 23.00</div>
+<div class="stock">In Stock</div>
+<button class="buy-btn" onclick="addToCart(''98 Subaru Impreza 22B-STi',23)">
+🛒 Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="2016 ford ft race.jpeg">
+<div class="card-content">
+<div class="car-title">2016 ford ft race</div>
+<div class="car-price">RM 30.00</div>
+<div class="stock">In Stock</div>
+<button class="buy-btn" onclick="addToCart('2016 ford ft race',30)">
+🛒 Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="Corvette c7 206.jpeg">
+<div class="card-content">
+<div class="car-title">Corvette c7 206</div>
+<div class="car-price">RM 22.00</div>
+<div class="stock">In Stock</div>
+<button class="buy-btn" onclick="addToCart('Corvette c7 206',22)">
+🛒 Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="sigma.jpeg">
+<div class="card-content">
+<div class="car-title">Subaru BRZ</div>
+<div class="car-price">RM 25.00</div>
+<div class="stock">In Stock</div>
+<button class="buy-btn" onclick="addToCart('Subaru BRZ',25)">
+🛒 Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="Maserati Shamal.jpeg">
+<div class="card-content">
+<div class="car-title">Maserati Shamal</div>
+<div class="car-price">RM 15.00</div>
+<div class="stock">In Stock</div>
+<button class="buy-btn" onclick="addToCart('Maserati Shamal',15)">
+🛒 Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="1993 toyota celica.jpeg ">
+<div class="card-content">
+<div class="car-title">1993 toyota celica</div>
+<div class="car-price">RM 20.00</div>
+<div class="stock">Limited Edition</div>
+<button class="buy-btn" onclick="addToCart('1993 toyota celica',20)">
+🛒 Add To Cart
+</button>
+</div>
+</div></div>
+
+<div class="cart-box">
+
+<h2>🛒 Shopping Cart</h2>
+
+<div id="cart-items">
+Your cart is empty.
+</div>
+
+<div class="total">
+Total: RM <span id="total-price">0.00</span>
+</div>
+
+<a
+id="checkout-btn"
+class="checkout-btn disabled"
+href="#"
+target="_blank"
+>
+💬 Checkout With WhatsApp
+</a>
+
+<button class="clear-btn" onclick="clearCart()">
+Clear Cart
+</button>
+
+<div class="qr-box" id="qr-box">
+<h3 style="margin-bottom:15px;">
+Scan QR To Order
+</h3>
+
+<img id="qr-image" src="">
+</div>
+
+</div>
+
+<div class="footer">
+🔥 Premium Hot Wheels Collection 2026
+</div>
+
+</div>
+
+<script>
+
+const SELLER_PHONE = "60175402786";
+
+let cart = [];
+
+function addToCart(name, price){
+
+    const existing = cart.find(item => item.name === name);
+
+    if(existing){
+        existing.qty++;
+    } else {
+        cart.push({
+            name:name,
+            price:price,
+            qty:1
+        });
+    }
+
+    updateCart();
+}
+
+function clearCart(){
+    cart = [];
+    updateCart();
+}
+
+function buildMessage(){
+
+    let message =
+`🔥 HOT WHEELS ORDER
+
+`;
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        let subtotal = item.price * item.qty;
+
+        total += subtotal;
+
+        message +=
+`${item.name}
+Qty: ${item.qty}
+Subtotal: RM ${subtotal.toFixed(2)}
+
+`;
+    });
+
+    message += `💰 TOTAL: RM ${total.toFixed(2)}`;
+
+    return encodeURIComponent(message);
+}
+
+function updateCart(){
+
+    const cartItems =
+        document.getElementById("cart-items");
+
+    const totalPrice =
+        document.getElementById("total-price");
+
+    const checkoutBtn =
+        document.getElementById("checkout-btn");
+
+    const qrBox =
+        document.getElementById("qr-box");
+
+    const qrImage =
+        document.getElementById("qr-image");
+
+    if(cart.length === 0){
+
+        cartItems.innerHTML =
+            "Your cart is empty.";
+
+        totalPrice.innerText = "0.00";
+
+        checkoutBtn.classList.add("disabled");
+
+        qrBox.style.display = "none";
+
+        return;
+    }
+
+    let html = "";
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        let subtotal = item.price * item.qty;
+
+        total += subtotal;
+
+        html += `
+        <div class="cart-item">
+            <div>
+                <strong>${item.name}</strong>
+                <br>
+                Qty: ${item.qty}
+            </div>
+
+            <div>
+                RM ${subtotal.toFixed(2)}
+            </div>
+        </div>
+        `;
+    });
+
+    cartItems.innerHTML = html;
+
+    totalPrice.innerText = total.toFixed(2);
+
+    const encodedMessage = buildMessage();
+
+    const whatsappURL =
+        `https://wa.me/${SELLER_PHONE}?text=${encodedMessage}`;
+
+    checkoutBtn.href = whatsappURL;
+
+    checkoutBtn.classList.remove("disabled");
+
+    qrImage.src =
+        `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(whatsappURL)}`;
+
+    qrBox.style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
